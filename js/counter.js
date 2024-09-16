@@ -1,8 +1,7 @@
-const countVisit = async () => {
-    const response = await fetch('https://api.countapi.xyz/hit/tu-dominio.com/visitas');
-    const data = await response.json();
-    document.getElementById('visit-count').innerText = `Visitas: ${data.value}`;
-  };
-  
-  document.addEventListener('DOMContentLoaded', countVisit);
-  
+document.addEventListener('DOMContentLoaded', function() {
+  const visitasElemento = document.getElementById('visitas');
+  let visitas = localStorage.getItem('visitas') || 0;
+  visitas++;
+  localStorage.setItem('visitas', visitas);
+  visitasElemento.textContent = visitas;
+});
